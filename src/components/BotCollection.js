@@ -2,20 +2,20 @@ import React from "react";
 import BotCard from "./BotCard";
 
 function BotCollection({ robots, clickHandler, deleteHandler }) {
-  // Your code here
+  const botCollection = robots.map((bot, index) => {
+    return (
+      <BotCard
+        key={index}
+        bot={bot}
+        clickHandler={clickHandler}
+        deleteHandler={deleteHandler}
+      />
+    );
+  });
   return (
     <div className="ui four column grid">
       <div className="row">
-        {robots.map((bot, index) => {
-          return (
-            <BotCard
-              key={index}
-              bot={bot}
-              clickHandler={clickHandler}
-              deleteHandler={deleteHandler}
-            />
-          );
-        })}
+        {botCollection}
         Collection of all bots
       </div>
     </div>

@@ -7,6 +7,7 @@ function BotsPage() {
   const [robots, setRobots] = useState([]);
   //state of your bot army collection
   const [yourRobots, setYourRobots] = useState([]);
+  //UseEffect on Fetch api
   useEffect(() => {
     fetchAPI();
   }, []);
@@ -21,15 +22,13 @@ function BotsPage() {
       setYourRobots([...yourRobots, robotObj]);
     }
   };
-  //delete your robot
+  //delete YOUR Robot
   const deleteYourRobot = (robotObj) => {
-    console.log("clicked");
     setYourRobots(yourRobots.filter((el) => el.id !== robotObj.id));
   };
 
   //delete bot from collection
   const deleteMainBot = (robotObj) => {
-    console.log(robotObj);
     fetch(`http://localhost:8002/bots/${robotObj.id}`, {
       method: "DELETE",
     }).then(() => {
@@ -38,7 +37,6 @@ function BotsPage() {
     });
   };
 
-  console.log(yourRobots);
   return (
     <div>
       <YourBotArmy
