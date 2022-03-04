@@ -44,7 +44,7 @@ function BotsPage() {
       <YourBotArmy
         yourRobots={yourRobots}
         deleteHandler={deleteYourRobot}
-        clickHandler={deleteYourRobot}
+        clickHandler={() => {}}
       />
       <BotCollection
         robots={robots}
